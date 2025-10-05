@@ -1,0 +1,10 @@
+<svg width="1920" height="1080" viewBox="0 0 1920 1080" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Pure black background -->
+  <rect width="1920" height="1080" fill="#000000"/>
+  
+  <!-- Additional black layer for absolute darkness -->
+  <rect width="1920" height="1080" fill="#000000" opacity="1"/>
+  
+  <!-- Triple black overlay to ensure maximum darkness -->
+  <rect width="1920" height="1080" fill="#000000" opacity="0.95"/>
+</svg>
