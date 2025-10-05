@@ -57,7 +57,7 @@ const Hero = () => {
                         </button>
                     </Container>
                     <Container delay={0.15}>
-                        <h1 className="text-4xl md:text-4xl lg:text-7xl font-bold text-center !leading-tight max-w-4xl mx-auto">
+                        <h1 className="text-3xl md:text-5xl lg:text-7xl font-bold text-center !leading-tight max-w-4xl mx-auto px-4">
                             חזק את {" "}
                             <span className="">
                                 השיווק שלך {" "}
@@ -66,28 +66,28 @@ const Hero = () => {
                         </h1>
                     </Container>
                     <Container delay={0.2}>
-                        <p className="max-w-xl mx-auto mt-2 text-base lg:text-lg text-center text-muted-foreground">
+                        <p className="max-w-xl mx-auto mt-2 text-sm md:text-base lg:text-lg text-center text-muted-foreground px-6">
                             אוטומציה ותובנות מופעלות על ידי AI כדי למקסם את הקמפיינים שלך ולהגדיל את המותג שלך.
                         </p>
                     </Container>
-                    <Container delay={0.25} className="z-20">
+                    <Container delay={0.25} className="z-20 px-4">
                         <div className="flex items-center justify-center mt-6 gap-x-4">
                             <Link href="#" className="flex items-center gap-2 group">
-                                <Button size="lg">
+                                <Button size="lg" className="text-sm md:text-base">
                                     התחל ניסיון חינם
                                     <ArrowRightIcon className="size-4 group-hover:-translate-x-1 transition-all duration-300 rotate-180" />
                                 </Button>
                             </Link>
                         </div>
                     </Container>
-                    <Container delay={0.3} className="relative w-full px-4">
-                        <div className="relative rounded-xl lg:rounded-[32px] border border-border p-2 backdrop-blur-lg mt-10 max-w-[1400px] mx-auto">
+                    <Container delay={0.3} className="relative w-full px-4 md:px-6 lg:px-8">
+                        <div className="relative rounded-xl lg:rounded-[32px] border border-border p-1.5 md:p-2 backdrop-blur-lg mt-10 max-w-[95vw] md:max-w-[90vw] lg:max-w-[1400px] mx-auto">
                             <div className="absolute top-1/8 left-1/2 -z-10 bg-gradient-to-r from-sky-500 to-blue-600 w-1/2 lg:w-3/4 -translate-x-1/2 h-1/4 -translate-y-1/2 inset-0 blur-[4rem] lg:blur-[10rem] animate-image-glow"></div>
                             <div className="hidden lg:block absolute -top-1/8 left-1/2 -z-20 bg-blue-600 w-1/4 -translate-x-1/2 h-1/4 -translate-y-1/2 inset-0 blur-[10rem] animate-image-glow"></div>
 
                             <div className="rounded-lg lg:rounded-[22px] border border-border bg-background overflow-hidden">
                                 <br />
-                            <p className="max-w-xl mx-auto mt-2 text-base lg:text-lg text-center text-muted-foreground">
+                            <p className="max-w-xl mx-auto mt-2 text-sm md:text-base lg:text-lg text-center text-muted-foreground px-4">
 צור פוסטים מדהימים שיעזרו לשווק את המותג שלך בעזרת  ai
                         </p>
                                 <InputCard />
