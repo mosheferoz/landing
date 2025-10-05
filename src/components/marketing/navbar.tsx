@@ -4,6 +4,7 @@ import Icons from "../global/icons";
 import Wrapper from "../global/wrapper";
 import { Button } from "../ui/button";
 import MobileMenu from "./mobile-menu";
+import { ThemeToggle } from "../global/theme-toggle";
 
 const Navbar = () => {
     return (
@@ -27,6 +28,7 @@ const Navbar = () => {
                     </div>
 
                     <div className="flex items-center gap-4">
+                        <ThemeToggle />
                         <Link href="#" className="hidden lg:block">
                             <Button variant="blue">
                                 התחל עכשיו

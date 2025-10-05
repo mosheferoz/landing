@@ -11,7 +11,7 @@ const Hero = () => {
     return (
         <div className="relative flex flex-col items-center justify-center w-full py-20">
 
-            <div className="absolute flex lg:hidden size-40 rounded-full bg-blue-500 blur-[10rem] top-0 left-1/2 -translate-x-1/2 -z-10"></div>
+            <div className="absolute flex lg:hidden size-40 rounded-full bg-blue-500/80 dark:bg-blue-500 blur-[10rem] top-0 left-1/2 -translate-x-1/2 -z-10"></div>
 
             <div className="flex flex-col items-center justify-center gap-y-8 relative">
                 <Container className="hidden lg:flex absolute inset-0 top-0 mb-auto flex-col items-center justify-center w-full min-h-screen -z-10">
@@ -43,12 +43,12 @@ const Hero = () => {
 
                 <div className="flex flex-col items-center justify-center text-center gap-y-4 bg-background/0">
                     <Container className="relative hidden lg:block overflow-hidden">
-                        <button className="group relative grid overflow-hidden rounded-full px-2 py-1 shadow-[0_1000px_0_0_hsl(0_0%_15%)_inset] transition-colors duration-200 mx-auto">
+                        <button className="group relative grid overflow-hidden rounded-full px-2 py-1 shadow-[0_1000px_0_0_hsl(0_0%_95%)_inset] dark:shadow-[0_1000px_0_0_hsl(0_0%_15%)_inset] transition-colors duration-200 mx-auto">
                             <span>
                                 <span className="spark mask-gradient absolute inset-0 h-[100%] w-[100%] animate-flip overflow-hidden rounded-full [mask:linear-gradient(white,_transparent_50%)] before:absolute before:aspect-square before:w-[200%] before:rotate-[-90deg] before:animate-rotate before:bg-[conic-gradient(from_0deg,transparent_0_340deg,white_360deg)] before:content-[''] before:[inset:0_auto_auto_50%] before:[translate:-50%_-15%]" />
                             </span>
-                            <span className="backdrop absolute inset-[1px] rounded-full bg-background transition-colors duration-200 group-hover:bg-neutral-800" />
-                            <span className="z-10 py-0.5 text-sm text-neutral-100 flex items-center">
+                            <span className="backdrop absolute inset-[1px] rounded-full bg-background transition-colors duration-200 group-hover:bg-neutral-200 dark:group-hover:bg-neutral-800" />
+                            <span className="z-10 py-0.5 text-sm text-foreground flex items-center">
                                 <span className="px-2 py-[0.5px] h-[18px] tracking-wide flex items-center justify-center rounded-full bg-gradient-to-r from-sky-400 to-blue-600 text-[9px] font-medium ml-2 text-white">
                                     חדש
                                 </span>

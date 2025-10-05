@@ -4,6 +4,7 @@ import { generateMetadata } from "@/utils";
 import { base, heading } from "@/constants";
 import { Toaster } from "@/components/ui/sonner";
 import { subheading } from "@/constants/fonts";
+import { ThemeProvider } from "@/components/global/theme-provider";
 
 export const metadata = generateMetadata();
 
@@ -22,8 +23,15 @@ export default function RootLayout({
                     subheading.variable,
                 )}
             >
+                <ThemeProvider
+                    attribute="class"
+                    defaultTheme="dark"
+                    enableSystem
+                    disableTransitionOnChange
+                >
                     <Toaster richColors theme="dark" position="top-left" />
                     {children}
+                </ThemeProvider>
             </body>
         </html>
     );

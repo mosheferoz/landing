@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 @layer base {
-  .dark {
+  :root {
     --background: 0 0% 100%;
     --foreground: 0 0% 3.9%;
     --card: 0 0% 100%;
@@ -39,9 +39,8 @@
     --sidebar-ring: 217.2 91.2% 59.8%;
   }
 
-  :root {
+  .dark {
     --background: 240 10% 4%;
-    /* --background: 240 2% 8%; */
     --foreground: 0 0% 98%;
     --card: 0 0% 3.9%;
     --card-foreground: 0 0% 98%;
@@ -217,11 +216,11 @@ img {
   box-shadow: none;
   /* true fade into page background via mask (works in Chromium/WebKit) */
   -webkit-mask-image:
-    linear-gradient(180deg, rgba(0,0,0,0) 0, rgba(0,0,0,1) 70px, rgba(0,0,0,1) calc(100% - 70px), rgba(0,0,0,0) 100%),
-    linear-gradient(90deg, rgba(0,0,0,0) 0, rgba(0,0,0,1) 50px, rgba(0,0,0,1) calc(100% - 50px), rgba(0,0,0,0) 100%);
+    linear-gradient(180deg, rgba(0,0,0,0) 0, rgba(0,0,0,1) 30px, rgba(0,0,0,1) calc(100% - 30px), rgba(0,0,0,0) 100%),
+    linear-gradient(90deg, rgba(0,0,0,0) 0, rgba(0,0,0,1) 20px, rgba(0,0,0,1) calc(100% - 20px), rgba(0,0,0,0) 100%);
   mask-image:
-    linear-gradient(180deg, rgba(0,0,0,0) 0, rgba(0,0,0,1) 70px, rgba(0,0,0,1) calc(100% - 70px), rgba(0,0,0,0) 100%),
-    linear-gradient(90deg, rgba(0,0,0,0) 0, rgba(0,0,0,1) 50px, rgba(0,0,0,1) calc(100% - 50px), rgba(0,0,0,0) 100%);
+    linear-gradient(180deg, rgba(0,0,0,0) 0, rgba(0,0,0,1) 30px, rgba(0,0,0,1) calc(100% - 30px), rgba(0,0,0,0) 100%),
+    linear-gradient(90deg, rgba(0,0,0,0) 0, rgba(0,0,0,1) 20px, rgba(0,0,0,1) calc(100% - 20px), rgba(0,0,0,0) 100%);
   -webkit-mask-composite: source-in; /* intersect */
   mask-composite: intersect;
 }
@@ -240,8 +239,8 @@ img {
   inset: 0;
   padding: 30px 20px;
   z-index: 1;
-  -webkit-mask-image: linear-gradient(to bottom, rgba(0,0,0,0) 0, rgba(0,0,0,.9) 70px, #000 calc(100% - 70px), rgba(0,0,0,0) 100%);
-  mask-image: linear-gradient(to bottom, rgba(0,0,0,0) 0, rgba(0,0,0,.9) 70px, #000 calc(100% - 70px), rgba(0,0,0,0) 100%);
+  -webkit-mask-image: linear-gradient(to bottom, rgba(0,0,0,0) 0, rgba(0,0,0,1) 30px, #000 calc(100% - 30px), rgba(0,0,0,0) 100%);
+  mask-image: linear-gradient(to bottom, rgba(0,0,0,0) 0, rgba(0,0,0,1) 30px, #000 calc(100% - 30px), rgba(0,0,0,0) 100%);
 }
 
 .marquee-viewport::after {
@@ -270,10 +269,10 @@ img {
    ======================================== */
 
 .ig-card {
-  background: rgba(17, 24, 39, 0.95);
+  background: rgba(255, 255, 255, 0.95);
   border-radius: 16px;
-  border: 1px solid rgba(75, 85, 99, 0.3);
-  box-shadow: 0 4px 12px rgba(0,0,0,.3), 0 12px 30px rgba(0,0,0,.2);
+  border: 1px solid rgba(229, 231, 235, 0.5);
+  box-shadow: 0 4px 12px rgba(0,0,0,.08), 0 12px 30px rgba(0,0,0,.05);
   overflow: hidden;
   transform: translateZ(0);
   width: 280px;
@@ -282,11 +281,21 @@ img {
   backdrop-filter: blur(10px);
 }
 
+.dark .ig-card {
+  background: rgba(17, 24, 39, 0.95);
+  border: 1px solid rgba(75, 85, 99, 0.3);
+  box-shadow: 0 4px 12px rgba(0,0,0,.3), 0 12px 30px rgba(0,0,0,.2);
+}
+
 .ig-header {
   display: flex;
   align-items: center;
   gap: 12px;
   padding: 12px 14px;
+  border-bottom: 1px solid rgba(229, 231, 235, 0.5);
+}
+
+.dark .ig-header {
   border-bottom: 1px solid rgba(75, 85, 99, 0.2);
 }
 
@@ -300,6 +309,10 @@ img {
 .ig-user {
   font-weight: 600;
   font-size: 14px;
+  color: #111827;
+}
+
+.dark .ig-user {
   color: #f9fafb;
 }
 
@@ -333,6 +346,10 @@ img.ig-media-el {
   align-items: center;
   justify-content: space-between;
   padding: 10px 14px;
+  color: #111827;
+}
+
+.dark .ig-actions {
   color: #f9fafb;
 }
 
@@ -346,14 +363,22 @@ img.ig-media-el {
   appearance: none;
   border: none;
   background: transparent;
-  color: #f9fafb;
+  color: #111827;
   cursor: pointer;
   padding: 8px;
   border-radius: 8px;
   transition: background .15s ease, color .15s ease;
 }
 
+.dark .ig-action-btn {
+  color: #f9fafb;
+}
+
 .ig-action-btn:hover {
+  background: rgba(209, 213, 219, 0.3);
+}
+
+.dark .ig-action-btn:hover {
   background: rgba(75, 85, 99, 0.3);
 }
 
@@ -374,6 +399,10 @@ img.ig-media-el {
 .ig-badge {
   margin-top: 3px;
   font-size: 13px;
+  color: #6b7280;
+}
+
+.dark .ig-badge {
   color: #9ca3af;
 }
 
@@ -381,7 +410,7 @@ img.ig-media-el {
   appearance: none;
   border: none;
   background: transparent;
-  color: #d1d5db;
+  color: #6b7280;
   cursor: pointer;
   padding: 6px;
   border-radius: 8px;
@@ -389,35 +418,59 @@ img.ig-media-el {
   transition: background .15s ease;
 }
 
+.dark .ig-menu {
+  color: #d1d5db;
+}
+
 .ig-menu:hover {
+  background: rgba(209, 213, 219, 0.3);
+}
+
+.dark .ig-menu:hover {
   background: rgba(75, 85, 99, 0.3);
 }
 
 .ig-caption {
   margin: 0 0 8px 0;
-  color: #e5e7eb;
+  color: #374151;
   font-size: 14px;
   line-height: 1.4;
+}
+
+.dark .ig-caption {
+  color: #e5e7eb;
 }
 
 .ig-user-handle {
   font-weight: 700;
   margin-right: 6px;
-  color: #f9fafb;
+  color: #111827;
   font-size: 14px;
+}
+
+.dark .ig-user-handle {
+  color: #f9fafb;
 }
 
 .ig-meta {
   padding: 0 14px 16px;
-  color: #e5e7eb;
+  color: #374151;
   font-size: 14px;
+}
+
+.dark .ig-meta {
+  color: #e5e7eb;
 }
 
 .ig-likes {
   font-weight: 600;
   margin-bottom: 8px;
-  color: #f9fafb;
+  color: #111827;
   font-size: 14px;
+}
+
+.dark .ig-likes {
+  color: #f9fafb;
 }
 
 .ig-text {
@@ -426,8 +479,12 @@ img.ig-media-el {
 }
 
 .ig-tags {
-  color: #60a5fa;
+  color: #3b82f6;
   font-size: 14px;
+}
+
+.dark .ig-tags {
+  color: #60a5fa;
 }
 
 /* ========================================

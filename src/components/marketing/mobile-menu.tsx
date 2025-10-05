@@ -6,6 +6,7 @@ import { NAV_LINKS } from "@/constants";
 import { Menu, X } from "lucide-react";
 import Link from "next/link";
 import { useState } from "react";
+import { ThemeToggle } from "../global/theme-toggle";
 
 const MobileMenu = () => {
     const [open, setOpen] = useState(false);
@@ -34,6 +35,10 @@ const MobileMenu = () => {
                         תפריט
                     </SheetTitle>
                 </SheetHeader>
+                <div className="flex items-center justify-between mb-6 pb-4 border-b border-border/50">
+                    <span className="text-sm font-medium text-muted-foreground">מצב תצוגה</span>
+                    <ThemeToggle />
+                </div>
                 <nav className="flex flex-col space-y-2">
                     {NAV_LINKS.map((link, index) => (
                         <Link
