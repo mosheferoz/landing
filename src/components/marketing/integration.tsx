@@ -18,7 +18,16 @@ const SOCIAL_PLATFORMS = [
 
 const Integration = () => {
 
-    const getPositionClasses = (position: string) => {
+    const getPositionClasses = (position: string, isMobile = false) => {
+        if (isMobile) {
+            switch (position) {
+                case "left-2": return "-translate-x-[95px]";
+                case "left-1": return "-translate-x-[65px]";
+                case "right-1": return "translate-x-[65px]";
+                case "right-2": return "translate-x-[95px]";
+                default: return "";
+            }
+        }
         switch (position) {
             case "left-3": return "-translate-x-[285px]";
             case "left-2": return "-translate-x-[210px]";
@@ -30,7 +39,14 @@ const Integration = () => {
         }
     };
 
-    const getSizeClasses = (size: string) => {
+    const getSizeClasses = (size: string, isMobile = false) => {
+        if (isMobile) {
+            switch (size) {
+                case "large": return "size-14";
+                case "medium": return "size-12";
+                default: return "size-14";
+            }
+        }
         switch (size) {
             case "large": return "size-20";
             case "medium": return "size-16";
@@ -39,7 +55,14 @@ const Integration = () => {
         }
     };
 
-    const getIconSizeClasses = (size: string) => {
+    const getIconSizeClasses = (size: string, isMobile = false) => {
+        if (isMobile) {
+            switch (size) {
+                case "large": return "size-7";
+                case "medium": return "size-5";
+                default: return "size-7";
+            }
+        }
         switch (size) {
             case "large": return "size-10";
             case "medium": return "size-7";
