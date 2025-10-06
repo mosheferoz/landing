@@ -27,10 +27,10 @@ const Features = () => {
                         index === 2 && "md:col-span-2 lg:col-span-1",
                     )}>
                         <MagicCard
-                            gradientFrom="#38bdf8"
-                            gradientTo="#3b82f6"
+                            gradientFrom="#f9a8d4"
+                            gradientTo="#ec4899"
                             className="p-4 lg:p-6 lg:rounded-3xl"
-                            gradientColor="rgba(59,130,246,0.1)"
+                            gradientColor="rgba(236,72,153,0.1)"
                         >
                             <div className="flex items-center space-x-reverse space-x-4 mb-4">
                                 <h3 className="text-xl font-semibold flex items-center gap-2">

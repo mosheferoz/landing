@@ -19,9 +19,9 @@ const PricingPage = () => {
         <Wrapper className="py-20">
             <div className="relative flex flex-col items-center justify-center w-full">
                 {/* Background Animation */}
-                <div className="absolute flex lg:hidden size-40 rounded-full bg-blue-500 blur-[10rem] top-0 left-1/2 -translate-x-1/2 -z-10"></div>
-                <div className="absolute top-40 left-1/2 -z-10 bg-gradient-to-r from-sky-500 to-blue-600 w-1/2 lg:w-2/3 -translate-x-1/2 h-1/4 blur-[4rem] lg:blur-[8rem] opacity-50"></div>
-                <div className="hidden lg:block absolute top-20 left-1/2 -z-20 bg-blue-600 w-1/4 -translate-x-1/2 h-1/4 blur-[10rem] opacity-30"></div>
+                <div className="absolute flex lg:hidden size-40 rounded-full bg-pink-500 blur-[10rem] top-0 left-1/2 -translate-x-1/2 -z-10"></div>
+                <div className="absolute top-40 left-1/2 -z-10 bg-gradient-to-r from-pink-500 to-pink-600 w-1/2 lg:w-2/3 -translate-x-1/2 h-1/4 blur-[4rem] lg:blur-[8rem] opacity-50"></div>
+                <div className="hidden lg:block absolute top-20 left-1/2 -z-20 bg-pink-600 w-1/4 -translate-x-1/2 h-1/4 blur-[10rem] opacity-30"></div>
                 
                 <div className="flex flex-col items-center justify-center gap-y-8 relative w-full">
                     <Container className="hidden lg:flex absolute left-1/2 -translate-x-1/2 top-0 flex-col items-center justify-center w-full h-[600px] -z-10 pointer-events-none">
@@ -93,7 +93,7 @@ const PricingPage = () => {
             {/* CTA Section */}
             <Container delay={0.5}>
                 <div className="relative max-w-5xl mx-auto mt-32">
-                    <div className="absolute inset-0 bg-gradient-to-r from-blue-500/20 to-blue-600/20 rounded-3xl blur-3xl -z-10"></div>
+                    <div className="absolute inset-0 bg-gradient-to-r from-pink-500/20 to-pink-600/20 rounded-3xl blur-3xl -z-10"></div>
                     <div className="relative border border-border/50 rounded-3xl p-8 md:p-12 bg-card/30 backdrop-blur-sm">
                         <div className="flex flex-col md:flex-row items-center justify-between gap-8">
                             <div className="text-center md:text-right flex-1">
@@ -126,8 +126,8 @@ const PricingPage = () => {
                 <div className="max-w-4xl mx-auto mt-20">
                     <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
                         <div className="flex flex-col items-center text-center p-6 rounded-2xl border border-border/30 bg-card/20">
-                            <div className="w-12 h-12 rounded-full bg-blue-500/10 flex items-center justify-center mb-4">
-                                <CheckIcon className="w-6 h-6 text-blue-500" />
+                            <div className="w-12 h-12 rounded-full bg-pink-500/10 flex items-center justify-center mb-4">
+                                <CheckIcon className="w-6 h-6 text-pink-500" />
                             </div>
                             <h4 className="text-lg font-medium mb-2">ביטול בכל עת</h4>
                             <p className="text-sm text-muted-foreground">
@@ -135,8 +135,8 @@ const PricingPage = () => {
                             </p>
                         </div>
                         <div className="flex flex-col items-center text-center p-6 rounded-2xl border border-border/30 bg-card/20">
-                            <div className="w-12 h-12 rounded-full bg-blue-500/10 flex items-center justify-center mb-4">
-                                <CheckIcon className="w-6 h-6 text-blue-500" />
+                            <div className="w-12 h-12 rounded-full bg-pink-500/10 flex items-center justify-center mb-4">
+                                <CheckIcon className="w-6 h-6 text-pink-500" />
                             </div>
                             <h4 className="text-lg font-medium mb-2">תמיכה 24/7</h4>
                             <p className="text-sm text-muted-foreground">
@@ -144,8 +144,8 @@ const PricingPage = () => {
                             </p>
                         </div>
                         <div className="flex flex-col items-center text-center p-6 rounded-2xl border border-border/30 bg-card/20">
-                            <div className="w-12 h-12 rounded-full bg-blue-500/10 flex items-center justify-center mb-4">
-                                <CheckIcon className="w-6 h-6 text-blue-500" />
+                            <div className="w-12 h-12 rounded-full bg-pink-500/10 flex items-center justify-center mb-4">
+                                <CheckIcon className="w-6 h-6 text-pink-500" />
                             </div>
                             <h4 className="text-lg font-medium mb-2">תשלום מאובטח</h4>
                             <p className="text-sm text-muted-foreground">
