@@ -18,56 +18,33 @@ const SOCIAL_PLATFORMS = [
 
 const Integration = () => {
 
-    const getPositionClasses = (position: string, isMobile = false) => {
-        if (isMobile) {
-            switch (position) {
-                case "left-2": return "-translate-x-[95px]";
-                case "left-1": return "-translate-x-[65px]";
-                case "right-1": return "translate-x-[65px]";
-                case "right-2": return "translate-x-[95px]";
-                default: return "";
-            }
-        }
+    const getPositionClasses = (position: string) => {
         switch (position) {
-            case "left-3": return "-translate-x-[285px]";
-            case "left-2": return "-translate-x-[210px]";
-            case "left-1": return "-translate-x-[125px]";
-            case "right-1": return "translate-x-[125px]";
-            case "right-2": return "translate-x-[210px]";
-            case "right-3": return "translate-x-[285px]";
+            case "left-3": return "-translate-x-[40vw] lg:-translate-x-[285px]";
+            case "left-2": return "-translate-x-[28vw] lg:-translate-x-[210px]";
+            case "left-1": return "-translate-x-[16vw] lg:-translate-x-[125px]";
+            case "right-1": return "translate-x-[16vw] lg:translate-x-[125px]";
+            case "right-2": return "translate-x-[28vw] lg:translate-x-[210px]";
+            case "right-3": return "translate-x-[40vw] lg:translate-x-[285px]";
             default: return "";
         }
     };
 
-    const getSizeClasses = (size: string, isMobile = false) => {
-        if (isMobile) {
-            switch (size) {
-                case "large": return "size-14";
-                case "medium": return "size-12";
-                default: return "size-14";
-            }
-        }
+    const getSizeClasses = (size: string) => {
         switch (size) {
-            case "large": return "size-20";
-            case "medium": return "size-16";
-            case "small": return "size-12";
-            default: return "size-20";
+            case "large": return "w-[12vw] h-[12vw] lg:size-20";
+            case "medium": return "w-[10vw] h-[10vw] lg:size-16";
+            case "small": return "w-[8vw] h-[8vw] lg:size-12";
+            default: return "w-[12vw] h-[12vw] lg:size-20";
         }
     };
 
-    const getIconSizeClasses = (size: string, isMobile = false) => {
-        if (isMobile) {
-            switch (size) {
-                case "large": return "size-7";
-                case "medium": return "size-5";
-                default: return "size-7";
-            }
-        }
+    const getIconSizeClasses = (size: string) => {
         switch (size) {
-            case "large": return "size-10";
-            case "medium": return "size-7";
-            case "small": return "size-5";
-            default: return "size-10";
+            case "large": return "w-[6vw] h-[6vw] lg:size-10";
+            case "medium": return "w-[5vw] h-[5vw] lg:size-7";
+            case "small": return "w-[4vw] h-[4vw] lg:size-5";
+            default: return "w-[6vw] h-[6vw] lg:size-10";
         }
     };
 
@@ -81,7 +58,7 @@ const Integration = () => {
                         <Ripple />
                         
                         <div className="absolute z-20 flex items-center justify-center">
-                            <Images.logo className="size-16" />
+                            <Images.logo className="w-[14vw] h-[14vw] lg:size-16" />
                         </div>
 
                         {SOCIAL_PLATFORMS.filter(p => !p.className).map((platform, index) => (
