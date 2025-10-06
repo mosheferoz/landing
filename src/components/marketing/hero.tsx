@@ -58,9 +58,9 @@ const Hero = () => {
                     </Container>
                     <Container delay={0.15}>
                         <h1 className="text-3xl md:text-5xl lg:text-7xl font-bold text-center !leading-tight max-w-4xl mx-auto px-4">
-                            חזק את {" "}
+                             נהל את {" "}
                             <span className="">
-                                השיווק שלך {" "}
+                                 השיווק שלך  {" "}
                             </span>
                             עם LIFT14
                         </h1>

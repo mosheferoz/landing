@@ -1,6 +1,5 @@
 import { cn } from "@/lib";
 import { ArrowRightIcon } from "lucide-react";
-import Image from "next/image";
 import Link from "next/link";
 import Container from "../global/container";
 import Icons from "../global/icons";
@@ -52,17 +51,33 @@ const Integration = () => {
     return (
         <div className="relative flex flex-col items-center justify-center w-full py-20 scale-">
             <Container className="relative">
-                <div className="relative flex flex-col lg:hidden items-center justify-center overflow-visible">
+                <div className="relative flex flex-col lg:hidden items-center justify-center overflow-visible min-h-[400px]">
                     <div className="absolute top-1/2 -translate-y-1/2 right-1/4 w-3/5 h-14 lg:h-20 bg-gradient-to-r from-blue-400 to-indigo-500 rounded-full -rotate-12 blur-[6.5rem] -z-10"></div>
 
-                    <div className="max-w-sm w-full h-auto mx-auto mt-8">
-                        <Image
-                            src="/images/integration.svg"
-                            alt="Integration"
-                            width={1000}
-                            height={1000}
-                            className="w-full h-auto"
-                        />
+                    <div className="relative flex items-center justify-center w-full">
+                        <Ripple />
+                        
+                        <div className="absolute z-20 flex items-center justify-center">
+                            <Images.logo className="size-16" />
+                        </div>
+
+                        {SOCIAL_PLATFORMS.filter(p => !p.className).map((platform, index) => (
+                            <div
+                                key={index}
+                                className={cn(
+                                    "absolute z-20 rounded-full flex items-center justify-center bg-gradient-to-b from-foreground/5 to-transparent shadow-xl shadow-black/10 backdrop-blur-lg",
+                                    getPositionClasses(platform.position),
+                                    getSizeClasses(platform.size)
+                                )}
+                            >
+                                <platform.icon
+                                    className={cn(
+                                        "size-auto text-foreground",
+                                        getIconSizeClasses(platform.iconSize)
+                                    )}
+                                />
+                            </div>
+                        ))}
                     </div>
 
                 </div>
