@@ -6,8 +6,11 @@ import Link from "next/link";
 import Container from "../global/container";
 import { Button } from "../ui/button";
 import Particles from "../ui/particles";
+import { usePrefersReducedMotion } from "@/hooks/use-reduced-motion";
 
 const CTA = () => {
+    const prefersReducedMotion = usePrefersReducedMotion();
+
     return (
         <div className="relative flex flex-col items-center justify-center w-full py-20">
             <Container className="py-20 max-w-6xl mx-auto">
@@ -32,10 +35,10 @@ const CTA = () => {
                         style={{
                             background: `conic-gradient(from 0deg at 50% 50%, ${BRAND_COLORS.hex.main} 0deg, ${BRAND_COLORS.hex.light} 180deg, ${BRAND_COLORS.hex.dark} 360deg)`,
                         }}
-                        animate={{
+                        animate={prefersReducedMotion ? {} : {
                             rotate: 360
                         }}
-                        transition={{
+                        transition={prefersReducedMotion ? {} : {
                             duration: 8,
                             repeat: Infinity,
                             ease: "linear"

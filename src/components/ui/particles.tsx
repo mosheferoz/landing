@@ -2,6 +2,9 @@
 
 import { cn } from "@/lib";
 import React, { useEffect, useRef, useState } from "react";
+import { usePrefersReducedMotion } from "@/hooks/use-reduced-motion";
+import { useInView } from "@/hooks/use-in-view";
+import { useMounted } from "@/hooks/use-mounted";
 
 interface MousePosition {
     x: number;
@@ -98,6 +101,11 @@ const Particles: React.FC<ParticlesProps> = ({
     const resizeTimeout = useRef<NodeJS.Timeout | null>(null);
     const [isMobile, setIsMobile] = useState(false);
 
+    // Performance optimizations
+    const prefersReducedMotion = usePrefersReducedMotion();
+    const { ref: containerRef, isInView } = useInView<HTMLDivElement>({ threshold: 0.1, triggerOnce: false });
+    const isMounted = useMounted(100); // Defer 100ms after mount
+
     // Detect mobile on mount
     useEffect(() => {
         const checkMobile = () => {
@@ -108,10 +116,21 @@ const Particles: React.FC<ParticlesProps> = ({
         return () => window.removeEventListener("resize", checkMobile);
     }, []);
 
-    // Reduce quantity significantly on mobile
-    const effectiveQuantity = isMobile ? Math.min(10, Math.ceil(quantity * 0.15)) : quantity;
+    // Reduce quantity significantly on mobile and respect motion preferences
+    const effectiveQuantity = prefersReducedMotion ? 0 : (isMobile ? Math.min(10, Math.ceil(quantity * 0.15)) : quantity);
+    
+    // Only animate if mounted, in view, and not reduced motion
+    const shouldAnimate = isMounted && isInView && !prefersReducedMotion;
 
     useEffect(() => {
+        // Don't initialize if shouldn't animate
+        if (!shouldAnimate || effectiveQuantity === 0) {
+            if (rafID.current != null) {
+                window.cancelAnimationFrame(rafID.current);
+            }
+            return;
+        }
+
         if (canvasRef.current) {
             context.current = canvasRef.current.getContext("2d");
         }
@@ -138,7 +157,7 @@ const Particles: React.FC<ParticlesProps> = ({
             }
             window.removeEventListener("resize", handleResize);
         };
-    }, [color]);
+    }, [color, shouldAnimate, effectiveQuantity]);
 
     useEffect(() => {
         onMouseMove();
@@ -315,10 +334,18 @@ const Particles: React.FC<ParticlesProps> = ({
     return (
         <div
             className={cn("pointer-events-none", className)}
-            ref={canvasContainerRef}
+            ref={(node) => {
+                // Combine refs
+                if (node) {
+                    canvasContainerRef.current = node;
+                    (containerRef as any).current = node;
+                }
+            }}
             aria-hidden="true"
         >
-            <canvas ref={canvasRef} className="size-full" />
+            {shouldAnimate && effectiveQuantity > 0 && (
+                <canvas ref={canvasRef} className="size-full" />
+            )}
         </div>
     );
 };

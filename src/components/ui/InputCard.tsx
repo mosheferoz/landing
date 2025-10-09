@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState, useEffect } from 'react';
+import { usePrefersReducedMotion } from "@/hooks/use-reduced-motion";
 
 export default function InputCard() {
   const [isLoading, setIsLoading] = useState(false);
@@ -9,6 +10,9 @@ export default function InputCard() {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isDeleting, setIsDeleting] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
+
+  // Performance optimizations
+  const prefersReducedMotion = usePrefersReducedMotion();
 
   // Detect mobile for performance optimization
   useEffect(() => {
@@ -21,6 +25,12 @@ export default function InputCard() {
   }, []);
 
   useEffect(() => {
+    // Show full text immediately if reduced motion is preferred
+    if (prefersReducedMotion) {
+      setDisplayedText(fullText);
+      return;
+    }
+
     // Slower typing on mobile for better performance
     const typingSpeed = isMobile ? 100 : 50; // מהירות כתיבה
     const deletingSpeed = isMobile ? 60 : 30; // מהירות מחיקה
@@ -58,7 +68,7 @@ export default function InputCard() {
       
       return () => clearTimeout(timeout);
     }
-  }, [currentIndex, isDeleting, fullText, isMobile]);
+  }, [currentIndex, isDeleting, fullText, isMobile, prefersReducedMotion]);
 
   const onSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -77,7 +87,7 @@ export default function InputCard() {
           <div className="ai-card-main">
             <div className="typing-animation">
               {displayedText}
-              <span className="typing-cursor">|</span>
+              {!prefersReducedMotion && <span className="typing-cursor">|</span>}
             </div>
           </div>
         </form>

@@ -1,6 +1,9 @@
 "use client";
 
 import React, { useEffect, useRef, useState } from 'react';
+import { usePrefersReducedMotion } from "@/hooks/use-reduced-motion";
+import { useInView } from "@/hooks/use-in-view";
+import { useMounted } from "@/hooks/use-mounted";
 
 type Post = {
   id: string;
@@ -163,6 +166,11 @@ function Column({ posts, direction = 'up', speed = 32, initialOffset = 0 }: { po
   const rafRef = useRef<number | null>(null);
   const [isMobile, setIsMobile] = useState(false);
 
+  // Performance optimizations
+  const prefersReducedMotion = usePrefersReducedMotion();
+  const { ref: columnRef, isInView } = useInView<HTMLDivElement>({ threshold: 0.1, triggerOnce: false });
+  const isMounted = useMounted(150);
+
   // Detect mobile for performance optimization
   useEffect(() => {
     const checkMobile = () => {
@@ -174,11 +182,24 @@ function Column({ posts, direction = 'up', speed = 32, initialOffset = 0 }: { po
   }, []);
 
   // Reduce speed on mobile for smoother performance
-  const effectiveSpeed = isMobile ? speed * 0.65 : speed;
+  const effectiveSpeed = prefersReducedMotion ? 0 : (isMobile ? speed * 0.65 : speed);
+  const shouldAnimate = isMounted && isInView && !prefersReducedMotion;
 
   useEffect(() => {
     const inner = innerRef.current;
     if (!inner) return;
+
+    // Don't animate if conditions not met
+    if (!shouldAnimate || effectiveSpeed === 0) {
+      if (rafRef.current !== null) {
+        cancelAnimationFrame(rafRef.current);
+      }
+      // Reset position if reduced motion
+      if (prefersReducedMotion && inner) {
+        inner.style.transform = 'translate3d(0, 0, 0)';
+      }
+      return;
+    }
 
     const measure = () => {
       // Half height because we render content twice for seamless loop
@@ -211,10 +232,19 @@ function Column({ posts, direction = 'up', speed = 32, initialOffset = 0 }: { po
       if (rafRef.current !== null) cancelAnimationFrame(rafRef.current);
       ro.disconnect();
     };
-  }, [direction, effectiveSpeed]);
+  }, [direction, effectiveSpeed, shouldAnimate, prefersReducedMotion]);
 
   return (
-    <div className="feed-col" onMouseEnter={() => (pausedRef.current = true)} onMouseLeave={() => (pausedRef.current = false)}>
+    <div 
+      className="feed-col" 
+      ref={(node) => {
+        if (node) {
+          (columnRef as any).current = node;
+        }
+      }}
+      onMouseEnter={() => (pausedRef.current = true)} 
+      onMouseLeave={() => (pausedRef.current = false)}
+    >
       <div className="marquee-viewport">
         <div className="marquee-inner" ref={innerRef} style={{ animation: 'none' as any }}>
           {items.map((p, idx) => (

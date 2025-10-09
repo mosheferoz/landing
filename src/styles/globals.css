@@ -101,6 +101,31 @@ img {
   pointer-events: none;
 }
 
+/* Respect user's motion preferences - Global */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+  
+  /* Specifically disable problematic animations */
+  .marquee-inner,
+  .animate-spin,
+  .animate-pulse,
+  .animate-bounce,
+  .animate-flip,
+  .animate-rotate,
+  .animate-orbit,
+  .animate-ripple,
+  .animate-blob {
+    animation: none !important;
+  }
+}
+
 .font-subheading.italic {
   background: linear-gradient(
     135deg,
@@ -267,9 +292,15 @@ img {
   flex-direction: column;
   gap: 16px;
   animation: marquee-up var(--marquee-duration, 40s) linear infinite;
-  will-change: transform;
   /* Performance optimization */
   transform: translate3d(0, 0, 0);
+}
+
+/* Only add will-change on desktop for better mobile performance */
+@media (min-width: 1025px) {
+  .marquee-inner {
+    will-change: transform;
+  }
 }
 
 /* pause on hover */
@@ -811,6 +842,14 @@ img.ig-media-el {
 @keyframes blink {
   0%, 49% { opacity: 1; }
   50%, 100% { opacity: 0; }
+}
+
+/* Disable blink on reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .typing-cursor {
+    animation: none !important;
+    opacity: 0 !important;
+  }
 }
 
 /* Fixed Create Button - Minimal Style */
