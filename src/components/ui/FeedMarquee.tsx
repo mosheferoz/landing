@@ -161,6 +161,20 @@ function Column({ posts, direction = 'up', speed = 32, initialOffset = 0 }: { po
   const halfHeightRef = useRef<number>(0);
   const lastTimeRef = useRef<number>(0);
   const rafRef = useRef<number | null>(null);
+  const [isMobile, setIsMobile] = useState(false);
+
+  // Detect mobile for performance optimization
+  useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.matchMedia("(max-width: 1024px)").matches);
+    };
+    checkMobile();
+    window.addEventListener("resize", checkMobile);
+    return () => window.removeEventListener("resize", checkMobile);
+  }, []);
+
+  // Reduce speed on mobile for smoother performance
+  const effectiveSpeed = isMobile ? speed * 0.65 : speed;
 
   useEffect(() => {
     const inner = innerRef.current;
@@ -182,7 +196,7 @@ function Column({ posts, direction = 'up', speed = 32, initialOffset = 0 }: { po
 
       if (!pausedRef.current && halfHeightRef.current > 0) {
         const dir = direction === 'up' ? -1 : 1;
-        let pos = posRef.current + dir * speed * dt;
+        let pos = posRef.current + dir * effectiveSpeed * dt;
         const half = halfHeightRef.current;
         if (dir === -1 && pos <= -half) pos += half;
         if (dir === 1 && pos >= 0) pos -= half;
@@ -197,7 +211,7 @@ function Column({ posts, direction = 'up', speed = 32, initialOffset = 0 }: { po
       if (rafRef.current !== null) cancelAnimationFrame(rafRef.current);
       ro.disconnect();
     };
-  }, [direction, speed]);
+  }, [direction, effectiveSpeed]);
 
   return (
     <div className="feed-col" onMouseEnter={() => (pausedRef.current = true)} onMouseLeave={() => (pausedRef.current = false)}>

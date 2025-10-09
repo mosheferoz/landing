@@ -1,3 +1,4 @@
+import { BRAND_COLORS } from "@/constants/colors";
 import { DownloadIcon, FilterIcon, TrendingUpIcon } from "lucide-react";
 import Container from "../global/container";
 import { Button } from "../ui/button";
@@ -22,12 +23,12 @@ const Analysis = () => {
                 <Container delay={0.2}>
                     <div className="rounded-2xl bg-background/40 relative border border-border/50">
                         <MagicCard
-                            gradientFrom="#f9a8d4"
-                            gradientTo="#ec4899"
-                            gradientColor="rgba(236,72,153,0.1)"
+                            gradientFrom={BRAND_COLORS.hex.light}
+                            gradientTo={BRAND_COLORS.hex.main}
+                            gradientColor={BRAND_COLORS.rgb.rgba}
                             className="p-4 lg:p-8 w-full overflow-hidden"
                         >
-                            <div className="absolute bottom-0 right-0 bg-pink-500 w-1/4 h-1/4 blur-[8rem] z-20"></div>
+                            <div className="absolute bottom-0 right-0 bg-brand-500 w-1/4 h-1/4 blur-3xl lg:blur-[8rem] z-20"></div>
                             <div className="space-y-4">
                                 <h3 className="text-xl font-semibold">
                                     תובנות קמפיין
@@ -86,12 +87,12 @@ const Analysis = () => {
                 <Container delay={0.2}>
                     <div className="rounded-2xl bg-background/40 relative border border-border/50">
                         <MagicCard
-                            gradientFrom="#f9a8d4"
-                            gradientTo="#ec4899"
-                            gradientColor="rgba(236,72,153,0.1)"
+                            gradientFrom={BRAND_COLORS.hex.light}
+                            gradientTo={BRAND_COLORS.hex.main}
+                            gradientColor={BRAND_COLORS.rgb.rgba}
                             className="p-4 lg:p-8 w-full overflow-hidden"
                         >
-                            <div className="absolute bottom-0 right-0 bg-pink-500 w-1/4 h-1/4 blur-[8rem] z-20"></div>
+                            <div className="absolute bottom-0 right-0 bg-brand-500 w-1/4 h-1/4 blur-3xl lg:blur-[8rem] z-20"></div>
                             <div className="space-y-4">
                                 <h3 className="text-xl font-semibold">
                                     מדדי קהל

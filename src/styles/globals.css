@@ -4,6 +4,13 @@
 
 @layer base {
   :root {
+    /* Brand Colors - שנה כאן לשנות את הצבעים בכל האתר */
+    --brand-light: #93c5fd;
+    --brand-main: #3b82f6;
+    --brand-dark: #2563eb;
+    --brand-glow-light: rgba(147, 197, 253, 0.5);
+    --brand-glow-main: rgba(59, 130, 246, 0.3);
+    
     --background: 0 0% 100%;
     --foreground: 0 0% 3.9%;
     --card: 0 0% 100%;
@@ -97,11 +104,11 @@ img {
 .font-subheading.italic {
   background: linear-gradient(
     135deg,
-    #f9a8d4 0%,
-    #ec4899 25%,
-    #db2777 50%,
-    #ec4899 75%,
-    #f9a8d4 100%
+    var(--brand-light) 0%,
+    var(--brand-main) 25%,
+    var(--brand-dark) 50%,
+    var(--brand-main) 75%,
+    var(--brand-light) 100%
   );
   background-size: 200% 200%;
   -webkit-background-clip: text;
@@ -110,8 +117,8 @@ img {
   font-style: normal;
   font-weight: 600;
   animation: gradient-shift 3s ease infinite;
-  filter: drop-shadow(0 0 20px rgba(249, 168, 212, 0.5)) 
-          drop-shadow(0 0 40px rgba(236, 72, 153, 0.3));
+  filter: drop-shadow(0 0 20px var(--brand-glow-light)) 
+          drop-shadow(0 0 40px var(--brand-glow-main));
   position: relative;
 }
 
@@ -166,8 +173,14 @@ img {
   height: 20px;
   width: 70%;
   border-radius: 100%;
-  filter: blur(6rem);
-  background: rgb(236, 72, 153);
+  filter: blur(3rem);
+  background: var(--brand-main);
+}
+
+@media (min-width: 1024px) {
+  .companies::after {
+    filter: blur(6rem);
+  }
 }
 
 .footer::before {
@@ -214,6 +227,8 @@ img {
   backdrop-filter: none;
   border: none;
   box-shadow: none;
+  /* Performance optimization */
+  contain: layout;
   /* true fade into page background via mask (works in Chromium/WebKit) */
   -webkit-mask-image:
     linear-gradient(180deg, rgba(0,0,0,0) 0, rgba(0,0,0,1) 30px, rgba(0,0,0,1) calc(100% - 30px), rgba(0,0,0,0) 100%),
@@ -253,6 +268,8 @@ img {
   gap: 16px;
   animation: marquee-up var(--marquee-duration, 40s) linear infinite;
   will-change: transform;
+  /* Performance optimization */
+  transform: translate3d(0, 0, 0);
 }
 
 /* pause on hover */
@@ -274,11 +291,20 @@ img {
   border: 1px solid rgba(229, 231, 235, 0.5);
   box-shadow: 0 4px 12px rgba(0,0,0,.08), 0 12px 30px rgba(0,0,0,.05);
   overflow: hidden;
-  transform: translateZ(0);
+  transform: translate3d(0, 0, 0);
   width: 280px;
   min-width: 280px;
   max-width: 280px;
   backdrop-filter: blur(10px);
+  /* Performance optimization */
+  contain: content;
+}
+
+@media (max-width: 1024px) {
+  .ig-card {
+    backdrop-filter: blur(6px);
+    box-shadow: 0 2px 8px rgba(0,0,0,.06), 0 8px 20px rgba(0,0,0,.04);
+  }
 }
 
 .dark .ig-card {
@@ -327,8 +353,13 @@ img {
   height: 350px;
   object-fit: cover;
   border-radius: 0;
-  will-change: transform;
   image-rendering: auto;
+}
+
+@media (min-width: 1025px) {
+  .ig-media-el {
+    will-change: transform;
+  }
 }
 
 /* Avoid browser resampling artifacts on tall portrait assets */
@@ -479,12 +510,12 @@ img.ig-media-el {
 }
 
 .ig-tags {
-  color: #ec4899;
+  color: var(--brand-main);
   font-size: 14px;
 }
 
 .dark .ig-tags {
-  color: #f9a8d4;
+  color: var(--brand-light);
 }
 
 /* ========================================
@@ -738,6 +769,14 @@ img.ig-media-el {
   position: relative;
   overflow: hidden;
   transition: border-color 0.3s ease;
+  /* Performance optimization */
+  contain: layout;
+}
+
+@media (max-width: 1024px) {
+  .ai-card-container {
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+  }
 }
 
 .ai-card-container:hover {

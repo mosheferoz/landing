@@ -1,5 +1,6 @@
 "use client";
 
+import { BRAND_COLORS } from "@/constants/colors";
 import { motion } from "framer-motion";
 import Link from "next/link";
 import Container from "../global/container";
@@ -27,9 +28,9 @@ const CTA = () => {
                     />
 
                     <motion.div
-                        className="absolute -bottom-1/8 left-1/3 -translate-x-1/2 w-44 h-32 lg:h-52 lg:w-1/3 rounded-full blur-[5rem] lg:blur-[10rem] -z-10"
+                        className="absolute -bottom-1/8 left-1/3 -translate-x-1/2 w-44 h-32 lg:h-52 lg:w-1/3 rounded-full blur-2xl lg:blur-[10rem] -z-10"
                         style={{
-                            background: 'conic-gradient(from 0deg at 50% 50%, #ec4899 0deg, #f9a8d4 180deg, #db2777 360deg)',
+                            background: `conic-gradient(from 0deg at 50% 50%, ${BRAND_COLORS.hex.main} 0deg, ${BRAND_COLORS.hex.light} 180deg, ${BRAND_COLORS.hex.dark} 360deg)`,
                         }}
                         animate={{
                             rotate: 360

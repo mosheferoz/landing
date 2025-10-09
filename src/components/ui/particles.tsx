@@ -15,6 +15,10 @@ function MousePosition(): MousePosition {
     });
 
     useEffect(() => {
+        // Check if mobile - disable mouse tracking for performance
+        const isMobile = window.matchMedia("(max-width: 1024px)").matches;
+        if (isMobile) return;
+
         const handleMouseMove = (event: MouseEvent) => {
             setMousePosition({ x: event.clientX, y: event.clientY });
         };
@@ -92,6 +96,20 @@ const Particles: React.FC<ParticlesProps> = ({
     const dpr = typeof window !== "undefined" ? window.devicePixelRatio : 1;
     const rafID = useRef<number | null>(null);
     const resizeTimeout = useRef<NodeJS.Timeout | null>(null);
+    const [isMobile, setIsMobile] = useState(false);
+
+    // Detect mobile on mount
+    useEffect(() => {
+        const checkMobile = () => {
+            setIsMobile(window.matchMedia("(max-width: 1024px)").matches);
+        };
+        checkMobile();
+        window.addEventListener("resize", checkMobile);
+        return () => window.removeEventListener("resize", checkMobile);
+    }, []);
+
+    // Reduce quantity significantly on mobile
+    const effectiveQuantity = isMobile ? Math.min(10, Math.ceil(quantity * 0.15)) : quantity;
 
     useEffect(() => {
         if (canvasRef.current) {
@@ -160,9 +178,9 @@ const Particles: React.FC<ParticlesProps> = ({
             canvasRef.current.style.height = `${canvasSize.current.h}px`;
             context.current.scale(dpr, dpr);
 
-            // Clear existing particles and create new ones with exact quantity
+            // Clear existing particles and create new ones with effective quantity
             circles.current = [];
-            for (let i = 0; i < quantity; i++) {
+            for (let i = 0; i < effectiveQuantity; i++) {
                 const circle = circleParams();
                 drawCircle(circle);
             }
@@ -225,7 +243,7 @@ const Particles: React.FC<ParticlesProps> = ({
 
     const drawParticles = () => {
         clearContext();
-        const particleCount = quantity;
+        const particleCount = effectiveQuantity;
         for (let i = 0; i < particleCount; i++) {
             const circle = circleParams();
             drawCircle(circle);

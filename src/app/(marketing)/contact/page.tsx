@@ -42,9 +42,9 @@ const ContactPage = () => {
         <Wrapper className="py-20">
             <div className="relative flex flex-col items-center justify-center w-full">
                 {/* Background Animation */}
-                <div className="absolute flex lg:hidden size-40 rounded-full bg-pink-500 blur-[10rem] top-0 left-1/2 -translate-x-1/2 -z-10"></div>
-                <div className="absolute top-40 left-1/2 -z-10 bg-gradient-to-r from-pink-500 to-pink-600 w-1/2 lg:w-2/3 -translate-x-1/2 h-1/4 blur-[4rem] lg:blur-[8rem] opacity-50"></div>
-                <div className="hidden lg:block absolute top-20 left-1/2 -z-20 bg-pink-600 w-1/4 -translate-x-1/2 h-1/4 blur-[10rem] opacity-30"></div>
+                <div className="absolute flex lg:hidden size-40 rounded-full bg-brand-500 blur-3xl top-0 left-1/2 -translate-x-1/2 -z-10"></div>
+                <div className="absolute top-40 left-1/2 -z-10 bg-gradient-to-r from-brand-500 to-brand-600 w-1/2 lg:w-2/3 -translate-x-1/2 h-1/4 blur-2xl lg:blur-[8rem] opacity-50"></div>
+                <div className="hidden lg:block absolute top-20 left-1/2 -z-20 bg-brand-600 w-1/4 -translate-x-1/2 h-1/4 blur-[10rem] opacity-30"></div>
                 
                 <div className="flex flex-col items-center justify-center gap-y-8 relative w-full">
                     <Container className="hidden lg:flex absolute left-1/2 -translate-x-1/2 top-0 flex-col items-center justify-center w-full h-[600px] -z-10 pointer-events-none">
@@ -81,34 +81,34 @@ const ContactPage = () => {
             <Container delay={0.2}>
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-5xl mx-auto mt-16">
                     <div className="flex flex-col items-center text-center p-6 rounded-2xl border border-border/50 bg-card/30 hover:bg-card/50 transition-all group">
-                        <div className="w-14 h-14 rounded-xl bg-gradient-to-br from-pink-500/20 to-pink-600/20 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
-                            <MailIcon className="w-7 h-7 text-pink-500" />
+                        <div className="w-14 h-14 rounded-xl bg-gradient-to-br from-brand-500/20 to-brand-600/20 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
+                            <MailIcon className="w-7 h-7 text-brand-500" />
                         </div>
                         <h3 className="text-lg font-medium mb-2">אימייל</h3>
                         <p className="text-sm text-muted-foreground mb-2">שלח לנו מייל</p>
-                        <a href="mailto:hello@lift14.com" className="text-pink-500 hover:underline text-sm">
+                        <a href="mailto:hello@lift14.com" className="text-brand-500 hover:underline text-sm">
                             hello@lift14.com
                         </a>
                     </div>
 
                     <div className="flex flex-col items-center text-center p-6 rounded-2xl border border-border/50 bg-card/30 hover:bg-card/50 transition-all group">
-                        <div className="w-14 h-14 rounded-xl bg-gradient-to-br from-pink-500/20 to-pink-600/20 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
-                            <PhoneIcon className="w-7 h-7 text-pink-500" />
+                        <div className="w-14 h-14 rounded-xl bg-gradient-to-br from-brand-500/20 to-brand-600/20 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
+                            <PhoneIcon className="w-7 h-7 text-brand-500" />
                         </div>
                         <h3 className="text-lg font-medium mb-2">טלפון</h3>
                         <p className="text-sm text-muted-foreground mb-2">התקשר אלינו</p>
-                        <a href="tel:+972501234567" className="text-pink-500 hover:underline text-sm">
+                        <a href="tel:+972501234567" className="text-brand-500 hover:underline text-sm">
                             050-123-4567
                         </a>
                     </div>
 
                     <div className="flex flex-col items-center text-center p-6 rounded-2xl border border-border/50 bg-card/30 hover:bg-card/50 transition-all group">
-                        <div className="w-14 h-14 rounded-xl bg-gradient-to-br from-pink-500/20 to-pink-600/20 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
-                            <MessageSquareIcon className="w-7 h-7 text-pink-500" />
+                        <div className="w-14 h-14 rounded-xl bg-gradient-to-br from-brand-500/20 to-brand-600/20 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
+                            <MessageSquareIcon className="w-7 h-7 text-brand-500" />
                         </div>
                         <h3 className="text-lg font-medium mb-2">צ'אט חי</h3>
                         <p className="text-sm text-muted-foreground mb-2">זמינים 24/7</p>
-                        <button className="text-pink-500 hover:underline text-sm">
+                        <button className="text-brand-500 hover:underline text-sm">
                             התחל שיחה
                         </button>
                     </div>
@@ -137,7 +137,7 @@ const ContactPage = () => {
                                             value={formData.name}
                                             onChange={handleChange}
                                             required
-                                            className="w-full px-4 py-3 rounded-xl bg-background/50 border border-border/50 focus:border-pink-500/50 focus:outline-none transition-colors text-right"
+                                            className="w-full px-4 py-3 rounded-xl bg-background/50 border border-border/50 focus:border-brand-500/50 focus:outline-none transition-colors text-right"
                                             placeholder="הכנס את שמך המלא"
                                         />
                                     </div>
@@ -153,7 +153,7 @@ const ContactPage = () => {
                                             value={formData.email}
                                             onChange={handleChange}
                                             required
-                                            className="w-full px-4 py-3 rounded-xl bg-background/50 border border-border/50 focus:border-pink-500/50 focus:outline-none transition-colors text-right"
+                                            className="w-full px-4 py-3 rounded-xl bg-background/50 border border-border/50 focus:border-brand-500/50 focus:outline-none transition-colors text-right"
                                             placeholder="your@email.com"
                                         />
                                     </div>
@@ -169,7 +169,7 @@ const ContactPage = () => {
                                                 name="company"
                                                 value={formData.company}
                                                 onChange={handleChange}
-                                                className="w-full px-4 py-3 rounded-xl bg-background/50 border border-border/50 focus:border-pink-500/50 focus:outline-none transition-colors text-right"
+                                                className="w-full px-4 py-3 rounded-xl bg-background/50 border border-border/50 focus:border-brand-500/50 focus:outline-none transition-colors text-right"
                                                 placeholder="שם החברה"
                                             />
                                         </div>
@@ -184,7 +184,7 @@ const ContactPage = () => {
                                                 name="phone"
                                                 value={formData.phone}
                                                 onChange={handleChange}
-                                                className="w-full px-4 py-3 rounded-xl bg-background/50 border border-border/50 focus:border-pink-500/50 focus:outline-none transition-colors text-right"
+                                                className="w-full px-4 py-3 rounded-xl bg-background/50 border border-border/50 focus:border-brand-500/50 focus:outline-none transition-colors text-right"
                                                 placeholder="050-123-4567"
                                             />
                                         </div>
@@ -201,7 +201,7 @@ const ContactPage = () => {
                                             onChange={handleChange}
                                             required
                                             rows={6}
-                                            className="w-full px-4 py-3 rounded-xl bg-background/50 border border-border/50 focus:border-pink-500/50 focus:outline-none transition-colors resize-none text-right"
+                                            className="w-full px-4 py-3 rounded-xl bg-background/50 border border-border/50 focus:border-brand-500/50 focus:outline-none transition-colors resize-none text-right"
                                             placeholder="ספר לנו על הפרויקט שלך או שאל אותנו כל שאלה..."
                                         />
                                     </div>
@@ -221,7 +221,7 @@ const ContactPage = () => {
                             </h2>
                             <div className="space-y-6">
                                 <div className="flex gap-4 flex-row-reverse text-right">
-                                    <div className="w-10 h-10 rounded-lg bg-pink-500/10 flex items-center justify-center flex-shrink-0">
+                                    <div className="w-10 h-10 rounded-lg bg-brand-500/10 flex items-center justify-center flex-shrink-0">
                                         <span className="text-lg">💡</span>
                                     </div>
                                     <div>
@@ -233,7 +233,7 @@ const ContactPage = () => {
                                 </div>
 
                                 <div className="flex gap-4 flex-row-reverse text-right">
-                                    <div className="w-10 h-10 rounded-lg bg-pink-500/10 flex items-center justify-center flex-shrink-0">
+                                    <div className="w-10 h-10 rounded-lg bg-brand-500/10 flex items-center justify-center flex-shrink-0">
                                         <span className="text-lg">🎯</span>
                                     </div>
                                     <div>
@@ -245,7 +245,7 @@ const ContactPage = () => {
                                 </div>
 
                                 <div className="flex gap-4 flex-row-reverse text-right">
-                                    <div className="w-10 h-10 rounded-lg bg-pink-500/10 flex items-center justify-center flex-shrink-0">
+                                    <div className="w-10 h-10 rounded-lg bg-brand-500/10 flex items-center justify-center flex-shrink-0">
                                         <span className="text-lg">🤝</span>
                                     </div>
                                     <div>
@@ -257,7 +257,7 @@ const ContactPage = () => {
                                 </div>
 
                                 <div className="flex gap-4 flex-row-reverse text-right">
-                                    <div className="w-10 h-10 rounded-lg bg-pink-500/10 flex items-center justify-center flex-shrink-0">
+                                    <div className="w-10 h-10 rounded-lg bg-brand-500/10 flex items-center justify-center flex-shrink-0">
                                         <span className="text-lg">🌟</span>
                                     </div>
                                     <div>
@@ -269,10 +269,10 @@ const ContactPage = () => {
                                 </div>
                             </div>
 
-                            <div className="mt-12 p-6 rounded-2xl bg-gradient-to-br from-pink-500/10 to-pink-600/10 border border-pink-500/20">
+                            <div className="mt-12 p-6 rounded-2xl bg-gradient-to-br from-brand-500/10 to-brand-600/10 border border-brand-500/20">
                                 <h3 className="text-lg font-medium mb-2 text-right">משרדינו</h3>
                                 <div className="flex items-start gap-3 text-sm text-muted-foreground flex-row-reverse text-right">
-                                    <MapPinIcon className="w-5 h-5 text-pink-500 flex-shrink-0 mt-0.5" />
+                                    <MapPinIcon className="w-5 h-5 text-brand-500 flex-shrink-0 mt-0.5" />
                                     <p>
                                         רחוב רוטשילד 22<br />
                                         תל אביב-יפו, 6688218<br />
@@ -297,12 +297,12 @@ const ContactPage = () => {
                         </p>
                     </div>
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                        <a href="/pricing#faq" className="p-6 rounded-2xl border border-border/50 bg-card/30 hover:bg-card/50 hover:border-pink-500/50 transition-all text-right group">
-                            <h3 className="text-lg font-medium mb-2 group-hover:text-pink-500 transition-colors">איך עובדת יצירת התוכן בעזרת AI?</h3>
+                        <a href="/pricing#faq" className="p-6 rounded-2xl border border-border/50 bg-card/30 hover:bg-card/50 hover:border-brand-500/50 transition-all text-right group">
+                            <h3 className="text-lg font-medium mb-2 group-hover:text-brand-500 transition-colors">איך עובדת יצירת התוכן בעזרת AI?</h3>
                             <p className="text-sm text-muted-foreground">למד על התהליך של יצירת תוכן מותאם אישית</p>
                         </a>
-                        <a href="/pricing#faq" className="p-6 rounded-2xl border border-border/50 bg-card/30 hover:bg-card/50 hover:border-pink-500/50 transition-all text-right group">
-                            <h3 className="text-lg font-medium mb-2 group-hover:text-pink-500 transition-colors">איזה סוג תמיכה אתם מספקים?</h3>
+                        <a href="/pricing#faq" className="p-6 rounded-2xl border border-border/50 bg-card/30 hover:bg-card/50 hover:border-brand-500/50 transition-all text-right group">
+                            <h3 className="text-lg font-medium mb-2 group-hover:text-brand-500 transition-colors">איזה סוג תמיכה אתם מספקים?</h3>
                             <p className="text-sm text-muted-foreground">גלה את אפשרויות התמיכה השונות שלנו</p>
                         </a>
                     </div>

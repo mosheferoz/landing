@@ -8,10 +8,22 @@ export default function InputCard() {
   const [displayedText, setDisplayedText] = useState("");
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isDeleting, setIsDeleting] = useState(false);
+  const [isMobile, setIsMobile] = useState(false);
+
+  // Detect mobile for performance optimization
+  useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.matchMedia("(max-width: 1024px)").matches);
+    };
+    checkMobile();
+    window.addEventListener("resize", checkMobile);
+    return () => window.removeEventListener("resize", checkMobile);
+  }, []);
 
   useEffect(() => {
-    const typingSpeed = 50; // מהירות כתיבה
-    const deletingSpeed = 30; // מהירות מחיקה
+    // Slower typing on mobile for better performance
+    const typingSpeed = isMobile ? 100 : 50; // מהירות כתיבה
+    const deletingSpeed = isMobile ? 60 : 30; // מהירות מחיקה
     const pauseBeforeDelete = 2000; // המתנה לפני מחיקה
     const pauseBeforeType = 500; // המתנה לפני כתיבה מחדש
 
@@ -46,7 +58,7 @@ export default function InputCard() {
       
       return () => clearTimeout(timeout);
     }
-  }, [currentIndex, isDeleting, fullText]);
+  }, [currentIndex, isDeleting, fullText, isMobile]);
 
   const onSubmit = async (e: React.FormEvent) => {
     e.preventDefault();

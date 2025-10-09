@@ -31,7 +31,7 @@ const MobileMenu = () => {
                 className="w-full sm:w-[320px] pt-16 bg-background/95 backdrop-blur-xl border-l border-border/50 shadow-2xl"
             >
                 <SheetHeader className="mb-10">
-                    <SheetTitle className="text-right text-2xl font-bold bg-gradient-to-l from-primary via-pink-500 to-purple-600 bg-clip-text text-transparent">
+                    <SheetTitle className="text-right text-2xl font-bold bg-gradient-to-l from-primary via-brand-500 to-purple-600 bg-clip-text text-transparent">
                         תפריט
                     </SheetTitle>
                 </SheetHeader>
@@ -50,7 +50,7 @@ const MobileMenu = () => {
                             <span className="relative z-10 transition-colors duration-300 group-hover:text-primary">
                                 {link.name}
                             </span>
-                            <div className="absolute left-0 top-0 h-full w-1 bg-gradient-to-b from-pink-400 via-pink-500 to-pink-600 opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-r-full" />
+                            <div className="absolute left-0 top-0 h-full w-1 bg-gradient-to-b from-brand-400 via-brand-500 to-brand-600 opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-r-full" />
                         </Link>
                     ))}
                     <div className="pt-6 mt-6 border-t border-border/50">
@@ -60,7 +60,7 @@ const MobileMenu = () => {
                                 variant="blue"
                             >
                                 <span className="relative z-10">התחל עכשיו</span>
-                                <div className="absolute inset-0 bg-gradient-to-r from-pink-500 to-pink-600 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                                <div className="absolute inset-0 bg-gradient-to-r from-brand-500 to-brand-600 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                             </Button>
                         </Link>
                     </div>

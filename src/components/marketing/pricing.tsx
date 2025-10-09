@@ -39,7 +39,7 @@ const Pricing = () => {
                     <div className="flex items-center justify-center space-x-reverse space-x-4 mt-6">
                         <span className="text-base font-medium">חודשי</span>
                         <button onClick={handleSwitch} className="relative rounded-full focus:outline-none">
-                            <div className="w-12 h-6 transition rounded-full shadow-md outline-none bg-pink-500"></div>
+                            <div className="w-12 h-6 transition rounded-full shadow-md outline-none bg-brand-500"></div>
                             <div
                                 className={cn(
                                     "absolute inline-flex items-center justify-center w-4 h-4 transition-all duration-500 ease-in-out top-1 rounded-full bg-white",
@@ -67,10 +67,10 @@ const Plan = ({ plan, billPlan }: { plan: PLAN, billPlan: Plan }) => {
     return (
         <div className={cn(
             "flex flex-col relative rounded-2xl lg:rounded-3xl transition-all bg-background/ items-start w-full border border-foreground/10 overflow-hidden",
-            plan.title === "Mastermind" && "border-pink-500"
+            plan.title === "Mastermind" && "border-brand-500"
         )}>
             {plan.title === "Mastermind" && (
-                <div className="absolute top-1/2 inset-x-0 mx-auto h-12 -rotate-45 w-full bg-pink-600 rounded-2xl lg:rounded-3xl blur-[8rem] -z-10"></div>
+                <div className="absolute top-1/2 inset-x-0 mx-auto h-12 -rotate-45 w-full bg-brand-600 rounded-2xl lg:rounded-3xl blur-[8rem] -z-10"></div>
             )}
 
             <div className="p-4 md:p-8 flex rounded-t-2xl lg:rounded-t-3xl flex-col items-start w-full relative">

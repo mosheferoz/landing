@@ -11,7 +11,7 @@ const Hero = () => {
     return (
         <div className="relative flex flex-col items-center justify-center w-full py-20">
 
-            <div className="absolute flex lg:hidden size-40 rounded-full bg-pink-500/80 dark:bg-pink-500 blur-[10rem] top-0 left-1/2 -translate-x-1/2 -z-10"></div>
+            <div className="absolute flex lg:hidden size-40 rounded-full bg-brand-500/80 dark:bg-brand-500 blur-3xl top-0 left-1/2 -translate-x-1/2 -z-10"></div>
 
             <div className="flex flex-col items-center justify-center gap-y-8 relative">
                 <Container className="hidden lg:flex absolute inset-0 top-0 mb-auto flex-col items-center justify-center w-full min-h-screen -z-10">
@@ -49,7 +49,7 @@ const Hero = () => {
                             </span>
                             <span className="backdrop absolute inset-[1px] rounded-full bg-background transition-colors duration-200 group-hover:bg-neutral-200 dark:group-hover:bg-neutral-800" />
                             <span className="z-10 py-0.5 text-sm text-foreground flex items-center">
-                                <span className="px-2 py-[0.5px] h-[18px] tracking-wide flex items-center justify-center rounded-full bg-gradient-to-r from-pink-400 to-pink-600 text-[9px] font-medium ml-2 text-white">
+                                <span className="px-2 py-[0.5px] h-[18px] tracking-wide flex items-center justify-center rounded-full bg-gradient-to-r from-brand-400 to-brand-600 text-[9px] font-medium ml-2 text-white">
                                     חדש
                                 </span>
                                 גלה את סיכום 2024
@@ -82,8 +82,8 @@ const Hero = () => {
                     </Container>
                     <Container delay={0.3} className="relative w-full px-4 md:px-6 lg:px-8">
                         <div className="relative rounded-xl lg:rounded-[32px] border border-border p-1.5 md:p-2 backdrop-blur-lg mt-10 max-w-[95vw] md:max-w-[90vw] lg:max-w-[1400px] mx-auto">
-                            <div className="absolute top-1/8 left-1/2 -z-10 bg-gradient-to-r from-pink-500 to-pink-600 w-1/2 lg:w-3/4 -translate-x-1/2 h-1/4 -translate-y-1/2 inset-0 blur-[4rem] lg:blur-[10rem] animate-image-glow"></div>
-                            <div className="hidden lg:block absolute -top-1/8 left-1/2 -z-20 bg-pink-600 w-1/4 -translate-x-1/2 h-1/4 -translate-y-1/2 inset-0 blur-[10rem] animate-image-glow"></div>
+                            <div className="absolute top-1/8 left-1/2 -z-10 bg-gradient-to-r from-brand-500 to-brand-600 w-1/2 lg:w-3/4 -translate-x-1/2 h-1/4 -translate-y-1/2 inset-0 blur-2xl lg:blur-[10rem] animate-image-glow"></div>
+                            <div className="hidden lg:block absolute -top-1/8 left-1/2 -z-20 bg-brand-600 w-1/4 -translate-x-1/2 h-1/4 -translate-y-1/2 inset-0 blur-[10rem] animate-image-glow"></div>
 
                             <div className="rounded-lg lg:rounded-[22px] border border-border bg-background overflow-hidden">
                                 <br />

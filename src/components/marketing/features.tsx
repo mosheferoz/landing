@@ -1,4 +1,5 @@
 import { FEATURES } from "@/constants";
+import { BRAND_COLORS } from "@/constants/colors";
 import { cn } from "@/lib";
 import Image from "next/image";
 import Container from "../global/container";
@@ -27,10 +28,10 @@ const Features = () => {
                         index === 2 && "md:col-span-2 lg:col-span-1",
                     )}>
                         <MagicCard
-                            gradientFrom="#f9a8d4"
-                            gradientTo="#ec4899"
+                            gradientFrom={BRAND_COLORS.hex.light}
+                            gradientTo={BRAND_COLORS.hex.main}
                             className="p-4 lg:p-6 lg:rounded-3xl"
-                            gradientColor="rgba(236,72,153,0.1)"
+                            gradientColor={BRAND_COLORS.rgb.rgba}
                         >
                             <div className="flex items-center space-x-reverse space-x-4 mb-4">
                                 <h3 className="text-xl font-semibold flex items-center gap-2">

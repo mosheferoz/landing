@@ -1,7 +1,7 @@
 "use client";
 
 import { motion, useMotionTemplate, useMotionValue } from "framer-motion";
-import React, { useCallback, useEffect, useRef } from "react";
+import React, { useCallback, useEffect, useRef, useState } from "react";
 
 import { cn } from "@/lib";
 
@@ -25,6 +25,17 @@ export function MagicCard({
     const cardRef = useRef<HTMLDivElement>(null);
     const mouseX = useMotionValue(-gradientSize);
     const mouseY = useMotionValue(-gradientSize);
+    const [isMobile, setIsMobile] = useState(false);
+
+    // Detect mobile for performance optimization
+    useEffect(() => {
+        const checkMobile = () => {
+            setIsMobile(window.matchMedia("(max-width: 1024px)").matches);
+        };
+        checkMobile();
+        window.addEventListener("resize", checkMobile);
+        return () => window.removeEventListener("resize", checkMobile);
+    }, []);
 
     const handleMouseMove = useCallback(
         (e: MouseEvent) => {
@@ -57,6 +68,9 @@ export function MagicCard({
     }, [handleMouseMove, mouseX, gradientSize, mouseY]);
 
     useEffect(() => {
+        // Disable mouse tracking on mobile for better performance
+        if (isMobile) return;
+
         document.addEventListener("mousemove", handleMouseMove);
         document.addEventListener("mouseout", handleMouseOut);
         document.addEventListener("mouseenter", handleMouseEnter);
@@ -66,7 +80,7 @@ export function MagicCard({
             document.removeEventListener("mouseout", handleMouseOut);
             document.removeEventListener("mouseenter", handleMouseEnter);
         };
-    }, [handleMouseEnter, handleMouseMove, handleMouseOut]);
+    }, [handleMouseEnter, handleMouseMove, handleMouseOut, isMobile]);
 
     useEffect(() => {
         mouseX.set(-gradientSize);
